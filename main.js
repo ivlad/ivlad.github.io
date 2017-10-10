@@ -71,7 +71,7 @@ $( document ).ready(function() {
       $('.scene').remove();
       $('body').append('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/SDIWLRvc7gQ?autoplay=1" frameborder="0" allowfullscreen ></iframe>');
       turnOff();
-    }, 67000);
+    }, 107000);
 
   }
 
