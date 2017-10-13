@@ -69,7 +69,7 @@ $( document ).ready(function() {
 
     window.setTimeout(function() {
       $('.scene').remove();
-      $('body').append('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/SDIWLRvc7gQ?autoplay=1" frameborder="0" allowfullscreen ></iframe>');
+      $('body').append('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZWO6TQHw7is?autoplay=1" frameborder="0" allowfullscreen ></iframe>');
       turnOff();
     }, 107000);
 
