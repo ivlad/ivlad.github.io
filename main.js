@@ -44,55 +44,31 @@ $( document ).ready(function() {
 
   var startVision = function() {
     window.setTimeout(function() {
-      $('.scene5').addClass('vision-starts');
-      $('.horrible-visions').addClass('glitch');
-    }, 14000);
-    window.setTimeout(function() {
-      $('.scene5').css('opacity', 0);
-      $('body').append('<iframe width="0" height="0" src="https://www.youtube.com/embed/0-OS06n2My0?start=1008&autoplay=1" frameborder="0" allowfullscreen></iframe>');
-    }, 20000);
-    window.setTimeout(function() {
-      $('body').css('background-image', 'url(https://media.giphy.com/media/l3q2N3zQsKzC99UIM/giphy.gif)');
-    }, 20500);
-    window.setTimeout(function() {
-      $('body').css('background-image', 'none').find('iframe').remove();
-    }, 45000);
-    window.setTimeout(function() {
-      $('body').css({
-        'background-image': 'url(https://image.prntscr.com/image/v9kz6SPmRcKK5nmfoQXzaA.png)',
-        'background-size': '30%',
-        'transition': '.2s'
-      }).find('iframe').remove();
-      $('.scene5').hide();
-      turnOff();
-    }, 47000);
-
-    window.setTimeout(function() {
       $('.scene').remove();
-      $('body').append('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZWO6TQHw7is?autoplay=1" frameborder="0" allowfullscreen ></iframe>');
-      turnOff();
-    }, 107000);
-
+      $('.ambient').remove();
+      $('body').append('<span class="video-container"><span class="text-of-video"></span><iframe width="100%" class="last-iframe" height="100%" src="https://www.youtube.com/embed/IwLSrNu1ppI?autoplay=1&showinfo=0&loop=0" frameborder="0" allowfullscreen ></iframe></span>');
+    }, 7000);
   }
 
-  var turnOff = function() {
+  const whatToSay = [
+  'Help me',
+  'This will never stop',
+  'I got you',
+  'I controll you',
+  "Don't move",
+  'No escape',
+  'Abandon your hope',
+  'Party never ends',
+  'You cannot resist',
+  'Your existance means nothing',
+  'Obey me',
+  'You are under my command'
+  ]
+
+  $(document).on('click', '.video-container', function() {
+    $('.text-of-video').addClass('visible').text(whatToSay[Math.floor((Math.random() * 12))]);
     window.setTimeout(function() {
-      $('body').css('background-image', 'url(https://image.prntscr.com/image/jPqck1yLQJiWUmgACG7L7g.jpg');
-      if (flickerNumber < 6) {
-        flickerNumber = flickerNumber + 1;
-        turnOn();
-      } else {
-        $('.date').show();
-        window.setTimeout(function() {
-          $('.date').css('opacity', 1);
-        }, 3000);
-      }
-    }, (Math.random() * 300) + 1);
-  }
-   var turnOn = function() {
-    window.setTimeout(function() {
-      $('body').css('background-image', 'url(https://image.prntscr.com/image/v9kz6SPmRcKK5nmfoQXzaA.png)');
-      turnOff();
-    }, (Math.random() * 300) + 1);
-  }
+      $('.text-of-video').removeClass('visible');
+    }, 1000);
+  });
 });
