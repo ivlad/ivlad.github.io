@@ -4,3 +4,4 @@ $( document ).ready(function() {
     $('.main-body').load('./spells.html');
   });
 });
+
