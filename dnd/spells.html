@@ -1,3 +1,6 @@
+<div class="prepared-spells">
+</div>
+
 <h1>Spells</h1>
 <hr>
 
@@ -6,7 +9,7 @@
 <label for="lvl2" class="light-red tab">Lvl 2</label>
 
 <input type="radio" name="spell" id="cantrips" class="spell-tab hide" checked="true">
-<div class="cantrips hide">
+<div class="spell-container cantrips hide" data-level='0'>
   <h2>Cantrips</h2>
   <div class="spell__list">
     <a href="#guidance">Guidance</a>
@@ -17,8 +20,9 @@
     <a href="#spare-the-dying">Spare the Dying</a>
     <a href="#thaumaturgy">Thaumaturgy</a>
   </div>
-  <div class="spell">
-    <h1 class="spell__header" id="guidance">Guidance </h1>
+  <div class="spell"  id="guidance">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Guidance </h1>
     Divination cantrip <br>
     <br>
     Casting Time: 1 action <br>
@@ -28,8 +32,9 @@
     You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="light">Light</h1>
+  <div class="spell"  id="light">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Light</h1>
     Evocation cantrip <br>
     <br>
     Casting Time: 1 action <br>
@@ -40,8 +45,9 @@
   If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="mending">Mending</h1>
+  <div class="spell" id="mending">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Mending</h1>
     Transmutation cantrip <br>
     <br>
     Casting Time: 1 minute <br>
@@ -52,8 +58,9 @@
     This spell can physically repair a magic item or construct, but the spell can't restore magic to such an object.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="resistance">Resistance</h1>
+  <div class="spell" id="resistance">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Resistance</h1>
     Abjuration cantrip<br>
     <br>
     Casting Time: 1 action  <br>
@@ -63,8 +70,9 @@
     You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll the die before or after making the saving throw. The spell then ends.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="sacred-flame">Sacred Flame</h1>
+  <div class="spell" id="sacred-flame">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Sacred Flame</h1>
     Evocation cantrip<br>
     <br>
     Casting Time: 1 action  <br>
@@ -75,8 +83,9 @@
     The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="spare-the-dying">Spare the Dying</h1>
+  <div class="spell" id="spare-the-dying">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Spare the Dying</h1>
     Necromancy cantrip<br>
     <br>
     Casting Time: 1 action  <br>
@@ -86,8 +95,9 @@
     You touch a living creature that has 0 hit points. The creature becomes stable. This spell has no effect on undead or constructs.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="thaumaturgy">Thaumaturgy</h1>
+  <div class="spell" id="thaumaturgy">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Thaumaturgy</h1>
     Transmutation cantrip<br>
     <br>
     Casting Time: 1 action  <br>
@@ -108,7 +118,7 @@
 </div>
 
 <input type="radio" name="spell" id="lvl1" class="spell-tab hide">
-<div class="lvl1 hide">
+<div class="spell-container lvl1 hide" data-level='1'>
   <h2>lvl 1</h2>
   <div class="spell__list">
     <a href="#bane">Bane</a>
@@ -127,8 +137,9 @@
     <a href="#sanctuary">Sanctuary</a>
     <a href="#shield-of-faith">Shield of Faith</a>
   </div>
-  <div class="spell">
-    <h1 class="spell__header" id="bane">Bane </h1>
+  <div class="spell" id="bane">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Bane </h1>
     1st-level enchantment <br>
     <br>
     Casting Time: 1 action  <br>
@@ -140,8 +151,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="bless">Bless </h1>
+  <div class="spell" id="bless">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Bless </h1>
     1st-level enchantment <br>
     <br>
     Casting Time: 1 action  <br>
@@ -153,8 +165,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="command">Command </h1>
+  <div class="spell" id="command">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Command </h1>
     1st-level enchantment <br>
     <br>
     Casting Time: 1 action  <br>
@@ -172,8 +185,9 @@
     <strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="create-destroy-water">Create or Destroy Water </h1>
+  <div class="spell" id="create-destroy-water">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Create or Destroy Water </h1>
     1st-level transmutation <br>
     <br>
     Casting Time: 1 action  <br>
@@ -186,8 +200,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, you create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet, for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="cure-wounds">Cure Wounds</h1>
+  <div class="spell" id="cure-wounds">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Cure Wounds</h1>
     1st-level evocation <br>
     <br>
     Casting Time: 1 action  <br>
@@ -198,8 +213,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="detect-evil-and-good">Detect Evil and Good</h1>
+  <div class="spell" id="detect-evil-and-good">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Detect Evil and Good</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 action  <br>
@@ -210,8 +226,9 @@
     The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="Detect Magic">Detect Magic</h1>
+  <div class="spell" id="detect-magic">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Detect Magic</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 action  <br>
@@ -222,8 +239,9 @@
     The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="detect-poison-disease">Detect Poison and Disease</h1>
+  <div class="spell" id="detect-poison-disease">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Detect Poison and Disease</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 action  <br>
@@ -234,8 +252,9 @@
     The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="guiding-bolt">Guiding Bolt</h1>
+  <div class="spell" id="guiding-bolt">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Guiding Bolt</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 action  <br>
@@ -246,8 +265,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="healing-word">Healing Word</h1>
+  <div class="spell" id="healing-word">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Healing Word</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 bonus action  <br>
@@ -258,8 +278,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="inflict-wounds">Inflict Wounds</h1>
+  <div class="spell" id="inflict-wounds">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Inflict Wounds</h1>
     1st-level divination <br>
     <br>
     Casting Time: 1 bonus action  <br>
@@ -270,8 +291,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="protection-from-evil-and-good">Protection from Evil and Good</h1>
+  <div class="spell" id="protection-from-evil-and-good">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Protection from Evil and Good</h1>
     1st-level necromancy <br>
     <br>
     Casting Time: 1  action  <br>
@@ -282,8 +304,9 @@
     The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="purify-food-and-drink">Purify Food and Drink</h1>
+  <div class="spell" id="purify-food-and-drink">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Purify Food and Drink</h1>
     1st-level transmutation (ritual) <br>
     <br>
     Casting Time: 1  action  <br>
@@ -293,8 +316,9 @@
     All nonmagical food and drink within a 5-foot-radius sphere centered on a point of your choice within range is purified and rendered free of poison and disease.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="sanctuary">Sanctuary</h1>
+  <div class="spell" id="sanctuary">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Sanctuary</h1>
     1st-level transmutation (ritual) <br>
     <br>
     Casting Time: 1 bonus action  <br>
@@ -305,8 +329,9 @@
     If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="shield-of-faith">Shield of Faith</h1>
+  <div class="spell" id="shield-of-faith">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Shield of Faith</h1>
     1st-level abjuration <br>
     <br>
     Casting Time: 1 bonus action  <br>
@@ -320,7 +345,7 @@
 
 <input type="radio" name="spell" id="lvl2" class="spell-tab hide">
 
-<div class="lvl2 hide">
+<div class="spell-container lvl2 hide" data-level='2'>
   <h2>lvl 2</h2>
   <div class="spell__list">
     <a href="#aid">Aid</a>
@@ -339,8 +364,9 @@
     <a href="#warding-bond">Warding Bond</a>
     <a href="#zone-of-truth">Zone of Truth</a>
   </div>
-  <div class="spell">
-    <h1 class="spell__header" id="bane">Aid </h1>
+  <div class="spell" id="aid">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Aid </h1>
     2nd-level abjuration <br>
     <br>
     Casting Time: 1 action  <br>
@@ -352,8 +378,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="augury">Augury </h1>
+  <div class="spell" id="augury">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Augury </h1>
     2nd-level abjuration <br>
     <br>
     Casting Time: 1 minute <br>
@@ -371,8 +398,9 @@
     If you cast the spell two or more times before completing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The GM makes this roll in secret.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="blindness-deafness">Blindness/Deafness </h1>
+  <div class="spell" id="blindness-deafness">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Blindness/Deafness </h1>
     2nd-level necromancy <br>
     <br>
     Casting Time: 1 action <br>
@@ -383,8 +411,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="calm-emotions">Calm Emotions</h1>
+  <div class="spell" id="calm-emotions">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Calm Emotions</h1>
     2nd-level enchantment <br>
     <br>
     Casting Time: 1 action <br>
@@ -396,8 +425,9 @@
     Alternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the GM rules otherwise.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="enhance-ability">Enhance Ability</h1>
+  <div class="spell" id="enhance-ability">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Enhance Ability</h1>
     2nd-level transmutation<br>
     <br>
     Casting Time: 1 action <br>
@@ -414,8 +444,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="gentle-repose">Gentle Repose</h1>
+  <div class="spell" id="gentle-repose">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Gentle Repose</h1>
     2nd-level necromancy (ritual)<br>
     <br>
     Casting Time: 1 action <br>
@@ -426,8 +457,9 @@
     The spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don't count against the time limit of spells such as raise dead.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="hold-person">Hold Person</h1>
+  <div class="spell" id="hold-person">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Hold Person</h1>
     2nd-level enchantment<br>
     <br>
     Casting Time: 1 action <br>
@@ -438,8 +470,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="lesser-restoration">Lesser Restoration</h1>
+  <div class="spell" id="lesser-restoration">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Lesser Restoration</h1>
     2nd-level abjuration<br>
     <br>
     Casting Time: 1 action <br>
@@ -449,8 +482,9 @@
     You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="locate-object">Locate Object</h1>
+  <div class="spell" id="locate-object">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Locate Object</h1>
     2nd-level divination<br>
     <br>
     Casting Time: 1 action <br>
@@ -462,8 +496,9 @@
     his spell can't locate an object if any thickness of lead, even a thin sheet, blocks a direct path between you and the object.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="prayer-of-healing">Prayer of Healing</h1>
+  <div class="spell" id="prayer-of-healing">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Prayer of Healing</h1>
     2nd-level evocation<br>
     <br>
     Casting Time: 10 minutes<br>
@@ -474,8 +509,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d8 for each slot level above 2nd.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="protection-from-poison">Protection from Poison</h1>
+  <div class="spell" id="protection-from-poison">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Protection from Poison</h1>
     2nd-level abjuration<br>
     <br>
     Casting Time: 1 action <br>
@@ -486,8 +522,9 @@
     For the duration, the target has advantage on saving throws against being poisoned, and it has resistance to poison damage.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="silence">Silence</h1>
+  <div class="spell" id="silence">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Silence</h1>
     2nd-level illusion (ritual)<br>
     <br>
     Casting Time: 1 action <br>
@@ -497,8 +534,9 @@
     For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="spiritual-weapon">Spiritual Weapon</h1>
+  <div class="spell" id="spiritual-weapon">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Spiritual Weapon</h1>
     2nd-level evocation<br>
     <br>
     Casting Time: 1 bonus action <br>
@@ -511,8 +549,9 @@
     <strong>At Higher Levels</strong>. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for every two slot levels above 2nd.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="warding-bond">Warding Bond</h1>
+  <div class="spell" id="warding-bond">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Warding Bond</h1>
     2nd-level abjuration<br>
     <br>
     Casting Time: 1 action <br>
@@ -523,8 +562,9 @@
     The spell ends if you drop to 0 hit points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures. You can also dismiss the spell as an action.
   </div>
   <hr>
-  <div class="spell">
-    <h1 class="spell__header" id="zone-of-truth">Zone of Truth</h1>
+  <div class="spell" id="zone-of-truth">
+    <a href="#" class="prepare-spell">PREPARE</a>
+    <h1 class="spell__header">Zone of Truth</h1>
     2nd-level enchantment<br>
     <br>
     Casting Time: 1 action <br>
@@ -536,12 +576,3 @@
   </div>
   <hr>
 </div>
-
-
-
-
-
-
-
-
-
