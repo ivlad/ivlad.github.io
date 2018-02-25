@@ -181,7 +181,7 @@ h2 {
   padding: 10px;
   border-radius: 5px;
   transform: translate(calc(-100% - 10px), -50%);
-  width: 80vw;
+  width: 50vw;
 }
 .spell-data .prepare-spell, .spell-data .prepare-cantrip {
   display: none;
