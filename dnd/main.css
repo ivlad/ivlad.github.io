@@ -107,6 +107,7 @@ h2 {
   border: 1px solid black;
 }
 .prepared-spell {
+  position: relative;
   margin: 10px 10px 15px 10px;
   text-transform: capitalize;
   display: flex;
@@ -170,4 +171,31 @@ h2 {
 }
 .rest--short {
   background: rgba(255, 255, 0, .1);
+}
+.spell-data {
+  position: absolute;
+  background: #fff;
+  top: 50%;
+  left: 0;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+  transform: translate(calc(-100% - 10px), -50%);
+  width: 80vw;
+}
+.spell-data .prepare-spell, .spell-data .prepare-cantrip {
+  display: none;
+}
+.spell-data:before {
+  display: block;
+  content: '';
+  height: 10px;
+  background: rgba(0, 0, 0, .02);
+  width: 10px;
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
+  position: absolute;
+  transform: rotate(45deg);
+  top: calc(50% - 7px);
+  right: -7px;
 }
