@@ -86,7 +86,7 @@ h2 {
   top: 10px;
 }
 
-.prepared-spells {
+.prepared-spells--spellsdb {
   display: flex;
   position: fixed;
   right: 120px;
@@ -96,6 +96,15 @@ h2 {
   padding: 5px 15px 0 15px;
   background: #fff;
   z-index: 2;
+} 
+.prepared-spells--spellsolots .remove-spell {
+  display: none;
+}
+.prepared-spells--spellsolots .prepared-spell {
+  padding: 20px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .05);
+  border: 1px solid black;
 }
 .prepared-spell {
   margin: 10px 10px 15px 10px;
@@ -122,4 +131,43 @@ h2 {
   margin-right: 10px;
   color: red;
   font-size: 23px;
+}
+
+.spell-slots-page {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+}
+
+.spell-slots {
+  width: 50%;
+}
+.spell-slot {
+  border: 1px solid black;
+  padding: 30px;
+  width: 100%;
+  font-weight: 900;
+  margin: 20px 0;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .05);
+}
+
+.spell-slot.used {
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+.rest {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 20px;
+  margin-left: 15px;
+}
+.rest--long {
+  font-weight: 900;
+  background: rgba(255, 255, 0, .5);
+}
+.rest--short {
+  background: rgba(255, 255, 0, .1);
 }
