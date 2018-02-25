@@ -8,23 +8,31 @@ $( document ).ready(function() {
 
 let preparedSpells = [];
 let preparedCantrips = [];
+const maxCantrips = 4;
+const maxPreparedSpells = 8;
+const maxSpells = {
+  lvl1: 4,
+  vlv2: 3,
+};
+
+
 
 const spellListItem = function(val) {
   return `
   <div class="prepared-spell">
-      <span class="remove-spell" data-name="${val.name}">✖</span> 
+      <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span> 
       <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
     </div>
   `};
 
 const vriteChosenSpells = () => {
   $('.prepared-spells .spells, .prepared-spells .cantrips').html('');
-  preparedSpells.forEach((val) => {
+  for (let val of preparedSpells) {
     $('.prepared-spells .spells').append(spellListItem(val));
-  });
-  preparedCantrips.forEach((val) => {
+  };
+  for (let val of preparedCantrips) {
     $('.prepared-spells .cantrips').append(spellListItem(val));
-  });
+  };
 };
 
 function ChosenSpell(name, level) {
@@ -33,10 +41,14 @@ function ChosenSpell(name, level) {
 }
 
 const markChosenSpells = () => {
+  vriteChosenSpells();
   $('.spell').removeClass('already-chosen');
-  preparedSpells.forEach((val) => {
+  for (let val of preparedCantrips) {
     $('#' + val.name).addClass('already-chosen');
-  });
+  }
+  for (let val of preparedSpells) {
+    $('#' + val.name).addClass('already-chosen');
+  };
 };
 
 const SortByLevel = (a, b) => {
@@ -50,16 +62,25 @@ $(document).on('click', '.prepare-spell', function(){
   const spell = $(this).closest('.spell').attr('id');
   const level = $(this).closest('.spell-container').data('level');
   const chosenSpell = new ChosenSpell(spell, level);
-  if (level === 0) {
-    preparedCantrips.push(chosenSpell);
-  } else {
+  if (preparedSpells.length + 1 <= maxPreparedSpells) {
     preparedSpells.push(chosenSpell);
+    preparedSpells.sort(SortByLevel);
+    markChosenSpells();
   }
-  preparedSpells.sort(SortByLevel);
-  vriteChosenSpells();
-  markChosenSpells();
   return false;
 });
+
+// prepare cantrip
+$(document).on('click', '.prepare-cantrip', function(){
+  const spell = $(this).closest('.spell').attr('id');
+  const chosenSpell = new ChosenSpell(spell, 0);
+  if (preparedCantrips.length + 1 <= maxCantrips) {
+    preparedCantrips.push(chosenSpell);
+    markChosenSpells();
+  }
+  return false;
+});
+
 
 // remove spell
 $(document).on('click', '.remove-spell', function() {
@@ -67,12 +88,18 @@ $(document).on('click', '.remove-spell', function() {
   const isSpell = (spell) => {
     return spell.name === spellName; 
   };
-  const spellToRemove = preparedSpells.find(isSpell);
+  let spellToRemove =  preparedSpells.find(isSpell);
+  if ($(this).data('lvl') === 0) {
+    spellToRemove =  preparedCantrips.find(isSpell);
+  }
+  
+  preparedCantrips = $.grep(preparedCantrips, (spell) => {
+    return spell != spellToRemove;
+  });
+  preparedSpells = $.grep(preparedSpells, (spell) => {
+    return spell != spellToRemove;
+  });
   $(this).closest('.prepared-spell').fadeOut(() => {
-    preparedSpells = $.grep(preparedSpells, (spell) => {
-      return spell != spellToRemove;
-    });
-    vriteChosenSpells();
     markChosenSpells();
   });
 });

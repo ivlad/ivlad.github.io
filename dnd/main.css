@@ -73,7 +73,7 @@ h2 {
   text-decoration: none;
 }
 
-.prepare-spell {
+.prepare-spell, .prepare-cantrip {
   background: rgba(30,144,255, .4);
   text-decoration: none;
   border-radius: 5px;
