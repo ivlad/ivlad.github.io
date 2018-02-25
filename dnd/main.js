@@ -7,16 +7,23 @@ $( document ).ready(function() {
 });
 
 let preparedSpells = [];
+let preparedCantrips = [];
+
+const spellListItem = function(val) {
+  return `
+  <div class="prepared-spell">
+      <span class="remove-spell" data-name="${val.name}">✖</span> 
+      <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
+    </div>
+  `};
 
 const vriteChosenSpells = () => {
-  $('.prepared-spells').html('');
+  $('.prepared-spells .spells, .prepared-spells .cantrips').html('');
   preparedSpells.forEach((val) => {
-    $('.prepared-spells').append(`
-      <div class="prepared-spell">
-        <span class="remove-spell" data-name="${val.name}">❌</span> 
-        <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
-      </div>
-    `);
+    $('.prepared-spells .spells').append(spellListItem(val));
+  });
+  preparedCantrips.forEach((val) => {
+    $('.prepared-spells .cantrips').append(spellListItem(val));
   });
 };
 
@@ -43,7 +50,11 @@ $(document).on('click', '.prepare-spell', function(){
   const spell = $(this).closest('.spell').attr('id');
   const level = $(this).closest('.spell-container').data('level');
   const chosenSpell = new ChosenSpell(spell, level);
-  preparedSpells.push(chosenSpell);
+  if (level === 0) {
+    preparedCantrips.push(chosenSpell);
+  } else {
+    preparedSpells.push(chosenSpell);
+  }
   preparedSpells.sort(SortByLevel);
   vriteChosenSpells();
   markChosenSpells();
