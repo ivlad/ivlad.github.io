@@ -132,7 +132,7 @@ $( document ).ready(function() {
     } 
   });
 
-  $(document).on('click', '.prepared-spell', function() {
+  $(document).on('click', '.prepared-spells--spellsolots .prepared-spell', function() {
     $('.spell-data').remove();
     $(this).append(`
       <div class='spell-data'>spell data</div>
