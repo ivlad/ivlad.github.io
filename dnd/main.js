@@ -1,8 +1,10 @@
 
 $( document ).ready(function() {
-  $('.main-body').load('./spells.html');
-  $(document).on('click', '.header-tab__spells-db', function() {
-    $('.main-body').load('./spells.html', function() {
+  $('.main-body').load('./spells.html', () => {
+    prepareLifeDomainSpells();
+  });
+  $(document).on('click', '.header-tab__spells-db', () => {
+    $('.main-body').load('./spells.html', () => {
       markChosenSpells();
     });
     return false;
@@ -10,14 +12,15 @@ $( document ).ready(function() {
 
   let preparedSpells = [];
   let preparedCantrips = [];
+  const lifeDomainSpells = ['bless', 'cure-wounds', 'lesser-restoration', 'spiritual-weapon'];
   const maxCantrips = 4;
-  const maxPreparedSpells = 8;
+  const maxPreparedSpells = 8 + 4;
   const maxSpells = {
     lvl1: 4,
     vlv2: 3,
   };
 
-  const spellListItem = function(val) {
+  const spellListItem = (val) => {
     return `
     <div class="prepared-spell">
         <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span> 
@@ -55,6 +58,13 @@ $( document ).ready(function() {
     const aLevel = a.level;
     const bLevel = b.level; 
     return ((aLevel < bLevel) ? -1 : ((aLevel > bLevel) ? 1 : 0));
+  };
+
+  // prepare life domain spells
+  const prepareLifeDomainSpells = () => {
+    for (let spell of lifeDomainSpells) {
+      $('#' + spell).find('.prepare-spell').click();
+    }
   };
 
   // prepare spell
