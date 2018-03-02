@@ -1,5 +1,9 @@
-
 /*jshint esversion: 6 */
+
+
+// MODULE TEST FOR THE FUTURE
+// import print from './print.js';
+// console.log(print(2));
 
 $( document ).ready(function() {
   $('.main-body').load('./spells.html', () => {
@@ -12,8 +16,14 @@ $( document ).ready(function() {
     return false;
   });
 
+  if (!localStorage.getItem('cantrips')) {
+    localStorage.setItem('cantrips', '[]');
+  }
+  if (!localStorage.getItem('spells')) {
+    localStorage.setItem('spells', '[]');
+  }
+
   let preparedSpells = [];
-  let preparedCantrips = [];
   const lifeDomainSpells = ['bless', 'cure-wounds', 'lesser-restoration', 'spiritual-weapon'];
   const maxCantrips = 4;
   const maxPreparedSpells = 8 + 4;
@@ -21,6 +31,12 @@ $( document ).ready(function() {
     lvl1: 4,
     vlv2: 3,
   };
+
+  // const saveData = () => {
+  //   localStorage.setItem('cantrips', JSON.stringify(preparedCantrips));
+  //   console.log(localStorage.getItem('cantrips'));
+  //   JSON.parse(localStorage.getItem('cantrips'));
+  // };
 
   const spellListItem = (val) => {
     return `
@@ -32,9 +48,10 @@ $( document ).ready(function() {
 
   const vriteChosenSpells = () => {
     $('.prepared-spells .spells, .prepared-spells .cantrips').html('');
-    for (let val of preparedSpells) {
-      $('.prepared-spells .spells').append(spellListItem(val));
-    }
+    // for (let val of preparedSpells) {
+    //   $('.prepared-spells .spells').append(spellListItem(val));
+    // }
+    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
     for (let val of preparedCantrips) {
       $('.prepared-spells .cantrips').append(spellListItem(val));
     }
@@ -48,9 +65,15 @@ $( document ).ready(function() {
   const markChosenSpells = () => {
     vriteChosenSpells();
     $('.spell').removeClass('already-chosen');
+    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
+
     for (let val of preparedCantrips) {
       $('#' + val.name).addClass('already-chosen');
     }
+
+    // for (let val of preparedCantrips) {
+    //   $('#' + val.name).addClass('already-chosen');
+    // }
     for (let val of preparedSpells) {
       $('#' + val.name).addClass('already-chosen');
     }
@@ -86,8 +109,10 @@ $( document ).ready(function() {
   $(document).on('click', '.prepare-cantrip', function(){
     const spell = $(this).closest('.spell').attr('id');
     const chosenSpell = new ChosenSpell(spell, 0);
+    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
     if (preparedCantrips.length + 1 <= maxCantrips) {
       preparedCantrips.push(chosenSpell);
+      localStorage.setItem('cantrips', JSON.stringify(preparedCantrips));
       markChosenSpells();
     }
     return false;
@@ -96,33 +121,51 @@ $( document ).ready(function() {
 
   // remove spell
   $(document).on('click', '.remove-spell', function() {
+    let preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
     const spellName = $(this).data('name');
     const isSpell = (spell) => {
       return spell.name === spellName; 
     };
-    let spellToRemove =  preparedSpells.find(isSpell);
-    if ($(this).data('lvl') === 0) {
-      spellToRemove =  preparedCantrips.find(isSpell);
-    }
-    
+    let spellToRemove =  preparedCantrips.find(isSpell);
     preparedCantrips = $.grep(preparedCantrips, (spell) => {
       return spell != spellToRemove;
     });
-    preparedSpells = $.grep(preparedSpells, (spell) => {
-      return spell != spellToRemove;
-    });
+
+    localStorage.setItem('cantrips', JSON.stringify(preparedCantrips));
+
+
+    // localStorage.removeItem('cantrips');
+
+
+    // const spellName = $(this).data('name');
+    // const isSpell = (spell) => {
+    //   return spell.name === spellName; 
+    // };
+    // let spellToRemove =  preparedSpells.find(isSpell);
+    // if ($(this).data('lvl') === 0) {
+    //   spellToRemove =  preparedCantrips.find(isSpell);
+    // }
+    
+    // preparedCantrips = $.grep(preparedCantrips, (spell) => {
+    //   return spell != spellToRemove;
+    // });
+
+    // preparedSpells = $.grep(preparedSpells, (spell) => {
+    //   return spell != spellToRemove;
+    // });
     $(this).closest('.prepared-spell').fadeOut(() => {
       markChosenSpells();
     });
   });
 
-
+  // Spell slot page
   $(document).on('click', '.header-tab__spells-slots', function() {
     $('.main-body').load('./spellslots.html', function() {
       markChosenSpells();
     });
   });
 
+  // Activate Spell slot
   $(document).on('click', '.spell-slot', function() {
     $('.spell-slot').not(this).removeClass('selected');
     $(this).toggleClass('selected');
@@ -135,7 +178,7 @@ $( document ).ready(function() {
     }
   });
   
-
+  // Long rest
   $(document).on('click', '.rest--long', function() {
     const cnfirmSlotUsage = confirm('Rest long rest?');
     if (cnfirmSlotUsage == true) {
@@ -143,6 +186,7 @@ $( document ).ready(function() {
     } 
   });
 
+  // Short rest
   $(document).on('click', '.rest--short', function() {
     const cnfirmSlotUsage = confirm('Rest short rest?');
     if (cnfirmSlotUsage == true) {
@@ -150,6 +194,7 @@ $( document ).ready(function() {
     } 
   });
 
+  // Click prepared spell
   $(document).on('click', '.prepared-spells--spellsolots .prepared-spell', function() {
     if($('.spell-slot.selected').length) {
       $('.spell-slot.selected').removeClass('selected').addClass('used');
@@ -165,6 +210,7 @@ $( document ).ready(function() {
     }
   });
 
+  // Hide spell info on spell slot page
   $(document).on('click', '.spell-data', function() {
     $('.spell-data').remove();
     return false;
