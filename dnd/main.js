@@ -2,11 +2,11 @@
 
 
 // MODULE TEST FOR THE FUTURE
-// import print from './print.js';
-// console.log(print(2));
+import setSpellSlots from './spell-slots.js';
 
 $( document ).ready(function() {
   $('.main-body').load('./spells.html', () => {
+    prepareLifeDomainSpells();
     markChosenSpells();
   });
   $(document).on('click', '.header-tab__spells-db', () => {
@@ -15,7 +15,6 @@ $( document ).ready(function() {
     });
     return false;
   });
-
   if (!localStorage.getItem('cantrips')) {
     localStorage.setItem('cantrips', '[]');
   }
@@ -29,7 +28,7 @@ $( document ).ready(function() {
   const maxPreparedSpells = 8 + 4;
   const spellListItem = (val) => {
     return `
-    <div class="prepared-spell">
+    <div class="prepared-spell ${val.name}">
         <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span> 
         <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
       </div>
@@ -74,8 +73,11 @@ $( document ).ready(function() {
 
   // prepare life domain spells
   const prepareLifeDomainSpells = () => {
-    for (let spell of lifeDomainSpells) {
-      $('#' + spell).find('.prepare-spell').click();
+    if (!localStorage.getItem('LifeSpellsPrepared')) {
+      localStorage.setItem('LifeSpellsPrepared', 'true');
+      for (let spell of lifeDomainSpells) {
+        $('#' + spell).find('.prepare-spell').click();
+      }
     }
   };
 
@@ -135,6 +137,7 @@ $( document ).ready(function() {
   $(document).on('click', '.header-tab__spells-slots', function() {
     $('.main-body').load('./spellslots.html', function() {
       markChosenSpells();
+      setSpellSlots();
     });
   });
 

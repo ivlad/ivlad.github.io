@@ -225,3 +225,9 @@ h2 {
   pointer-events: none;
   opacity: 0.5;
 }
+
+.bless .remove-spell, .cure-wounds .remove-spell, .lesser-restoration .remove-spell, .spiritual-weapon .remove-spell {
+  color: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
