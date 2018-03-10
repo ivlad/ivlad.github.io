@@ -4,14 +4,19 @@
 // MODULE TEST FOR THE FUTURE
 import setSpellSlots from './spell-slots.js';
 
+// import {add, substract} from './spell-db.js';
+import * as spellDb from './spell-db.js';
+
 $( document ).ready(function() {
   $('.main-body').load('./spells.html', () => {
-    prepareLifeDomainSpells();
     markChosenSpells();
+    spellDb.setSpellLimits();
+    prepareLifeDomainSpells();
   });
   $(document).on('click', '.header-tab__spells-db', () => {
     $('.main-body').load('./spells.html', () => {
       markChosenSpells();
+      spellDb.setSpellLimits();
     });
     return false;
   });
@@ -24,8 +29,6 @@ $( document ).ready(function() {
 
   let preparedSpells = [];
   const lifeDomainSpells = ['bless', 'cure-wounds', 'lesser-restoration', 'spiritual-weapon'];
-  const maxCantrips = 4;
-  const maxPreparedSpells = 8 + 4;
   const spellListItem = (val) => {
     return `
     <div class="prepared-spell ${val.name}">
@@ -46,11 +49,6 @@ $( document ).ready(function() {
     }
   };
 
-  function ChosenSpell(name, level) {
-    this.name = name;
-    this.level = level;
-  }
-
   const markChosenSpells = () => {
     vriteChosenSpells();
     $('.spell').removeClass('already-chosen');
@@ -65,12 +63,6 @@ $( document ).ready(function() {
     }
   };
 
-  const SortByLevel = (a, b) => {
-    const aLevel = a.level;
-    const bLevel = b.level; 
-    return ((aLevel < bLevel) ? -1 : ((aLevel > bLevel) ? 1 : 0));
-  };
-
   // prepare life domain spells
   const prepareLifeDomainSpells = () => {
     if (!localStorage.getItem('LifeSpellsPrepared')) {
@@ -80,35 +72,6 @@ $( document ).ready(function() {
       }
     }
   };
-
-  // prepare spell
-  $(document).on('click', '.prepare-spell', function(){
-    const spell = $(this).closest('.spell').attr('id');
-    const level = $(this).closest('.spell-container').data('level');
-    const chosenSpell = new ChosenSpell(spell, level);
-    const preparedSpells = JSON.parse(localStorage.getItem('spells'));
-    if (preparedSpells.length + 1 <= maxPreparedSpells) {
-      preparedSpells.sort(SortByLevel);
-      preparedSpells.push(chosenSpell);
-      localStorage.setItem('spells', JSON.stringify(preparedSpells));
-      markChosenSpells();
-    }
-    return false;
-  });
-
-  // prepare cantrip
-  $(document).on('click', '.prepare-cantrip', function(){
-    const cantrip = $(this).closest('.spell').attr('id');
-    const chosenCantrip = new ChosenSpell(cantrip, 0);
-    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
-    if (preparedCantrips.length + 1 <= maxCantrips) {
-      preparedCantrips.push(chosenCantrip);
-      localStorage.setItem('cantrips', JSON.stringify(preparedCantrips));
-      markChosenSpells();
-    }
-    return false;
-  });
-
 
   // remove spell
   $(document).on('click', '.remove-spell', function() {
@@ -176,7 +139,7 @@ $( document ).ready(function() {
     }
   });
   
-  // Click channle divinity
+  // Click channel divinity
   $(document).on('click', '.spell-slot--channel-divinity', function() {
     var r = confirm('Use Channel Divinity?');
     if (r == true) {
@@ -207,4 +170,7 @@ $( document ).ready(function() {
     $('.spell-data').remove();
     return false;
   });
+
+  spellDb.prepareSpell(markChosenSpells);
+  
 });
