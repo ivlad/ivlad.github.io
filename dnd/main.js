@@ -1,10 +1,6 @@
 /*jshint esversion: 6 */
 
-
-// MODULE TEST FOR THE FUTURE
 import setSpellSlots from './spell-slots.js';
-
-// import {add, substract} from './spell-db.js';
 import * as spellDb from './spell-db.js';
 
 $( document ).ready(function() {
@@ -20,6 +16,7 @@ $( document ).ready(function() {
     });
     return false;
   });
+
   if (!localStorage.getItem('cantrips')) {
     localStorage.setItem('cantrips', '[]');
   }
@@ -72,30 +69,6 @@ $( document ).ready(function() {
       }
     }
   };
-
-  // remove spell
-  $(document).on('click', '.remove-spell', function() {
-    let preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
-    let preparedSpells = JSON.parse(localStorage.getItem('spells'));
-    const spellName = $(this).data('name');
-    const isSpell = (spell) => {
-      return spell.name === spellName; 
-    };
-    let cantripToRemove =  preparedCantrips.find(isSpell);
-    preparedCantrips = $.grep(preparedCantrips, (spell) => {
-      return spell != cantripToRemove;
-    });
-    localStorage.setItem('cantrips', JSON.stringify(preparedCantrips));
-
-    let spellToRemove =  preparedSpells.find(isSpell);
-    preparedSpells = $.grep(preparedSpells, (spell) => {
-      return spell != spellToRemove;
-    });
-    localStorage.setItem('spells', JSON.stringify(preparedSpells));
-    $(this).closest('.prepared-spell').fadeOut(() => {
-      markChosenSpells();
-    });
-  });
 
   // Spell slot page
   $(document).on('click', '.header-tab__spells-slots', function() {
@@ -172,5 +145,7 @@ $( document ).ready(function() {
   });
 
   spellDb.prepareSpell(markChosenSpells);
+  spellDb.removeSpell(markChosenSpells);
+
   
 });

@@ -34,3 +34,22 @@ export function prepareSpell(markChosenSpells) {
     return false;
   });
 }
+
+export function removeSpell(markChosenSpells) {
+  $(document).on('click', '.remove-spell', function() {
+    const spellName = $(this).data('name');
+    const spellType = $('#' + spellName).closest('.spell-container').data('type');
+    let preparedSpells = JSON.parse(localStorage.getItem(spellType));
+    const isSpell = (spell) => {
+      return spell.name === spellName; 
+    };
+    const spellToRemove = preparedSpells.find(isSpell);
+    preparedSpells = $.grep(preparedSpells, (spell) => {
+      return spell != spellToRemove;
+    });
+    localStorage.setItem(spellType, JSON.stringify(preparedSpells));
+    $(this).closest('.prepared-spell').fadeOut(() => {
+      markChosenSpells();
+    });
+  });
+}
