@@ -4,79 +4,45 @@ import setSpellSlots from './spell-slots.js';
 import * as spellDb from './spell-db.js';
 
 $( document ).ready(function() {
-  $('.main-body').load('./spells.html', () => {
-    markChosenSpells();
-    spellDb.setSpellLimits();
-    prepareLifeDomainSpells();
-  });
-  $(document).on('click', '.header-tab__spells-db', () => {
-    $('.main-body').load('./spells.html', () => {
-      markChosenSpells();
-      spellDb.setSpellLimits();
-    });
-    return false;
-  });
-
+  // Initial load
   if (!localStorage.getItem('cantrips')) {
     localStorage.setItem('cantrips', '[]');
   }
   if (!localStorage.getItem('spells')) {
     localStorage.setItem('spells', '[]');
   }
-
-  let preparedSpells = [];
-  const lifeDomainSpells = ['bless', 'cure-wounds', 'lesser-restoration', 'spiritual-weapon'];
-  const spellListItem = (val) => {
-    return `
-    <div class="prepared-spell ${val.name}">
-        <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span> 
-        <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
-      </div>
-    `;};
-
-  const vriteChosenSpells = () => {
-    $('.prepared-spells .spells, .prepared-spells .cantrips').html('');
-    const preparedSpells = JSON.parse(localStorage.getItem('spells'));
-    for (let val of preparedSpells) {
-      $('.prepared-spells .spells').append(spellListItem(val));
-    }
-    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
-    for (let val of preparedCantrips) {
-      $('.prepared-spells .cantrips').append(spellListItem(val));
-    }
-  };
-
-  const markChosenSpells = () => {
-    vriteChosenSpells();
-    $('.spell').removeClass('already-chosen');
-    const preparedCantrips = JSON.parse(localStorage.getItem('cantrips'));
-    const preparedSpells = JSON.parse(localStorage.getItem('spells'));
-
-    for (let val of preparedCantrips) {
-      $('#' + val.name).addClass('already-chosen');
-    }
-    for (let val of preparedSpells) {
-      $('#' + val.name).addClass('already-chosen');
-    }
-  };
-
-  // prepare life domain spells
-  const prepareLifeDomainSpells = () => {
+  $('.main-body').load('./spell-db.html', () => {
+    const lifeDomainSpells = ['bless', 'cure-wounds', 'lesser-restoration', 'spiritual-weapon'];
+    spellDb.markAndWriteChosenSpells();
+    spellDb.setSpellLimits();
     if (!localStorage.getItem('LifeSpellsPrepared')) {
       localStorage.setItem('LifeSpellsPrepared', 'true');
       for (let spell of lifeDomainSpells) {
         $('#' + spell).find('.prepare-spell').click();
       }
     }
-  };
-
-  // Spell slot page
+  });
+  // Enter spells database
+  $(document).on('click', '.header-tab__spells-db', () => {
+    $('.main-body').load('./spell-db.html', () => {
+      spellDb.markAndWriteChosenSpells();
+      spellDb.setSpellLimits();
+    });
+    return false;
+  });
+  // Enter spells slot page
   $(document).on('click', '.header-tab__spells-slots', function() {
     $('.main-body').load('./spellslots.html', function() {
-      markChosenSpells();
+      spellDb.markAndWriteChosenSpells();
       setSpellSlots();
     });
+    return false;
   });
+
+  spellDb.prepareSpellListener();
+  spellDb.removeSpellListener();
+
+
 
   // Activate Spell slot
   $(document).on('click', '.spell-slot', function() {
@@ -143,9 +109,4 @@ $( document ).ready(function() {
     $('.spell-data').remove();
     return false;
   });
-
-  spellDb.prepareSpell(markChosenSpells);
-  spellDb.removeSpell(markChosenSpells);
-
-  
 });
