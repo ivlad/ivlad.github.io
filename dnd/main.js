@@ -73,7 +73,7 @@ $( document ).ready(function() {
         <div class='spell-data'>spell data</div>
       `);
       const spellName = $(this).find('.remove-spell').data('name');
-      $('.spell-data').load('./spells.html #' + spellName, function() {
+      $('.spell-data').load('./spell-db.html #' + spellName, function() {
       });
     }
   });
