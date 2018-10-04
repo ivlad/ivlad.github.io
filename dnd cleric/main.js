@@ -22,6 +22,7 @@ $( document ).ready(function() {
       }
     }
   });
+
   // Enter spells database
   $(document).on('click', '.header-tab__spells-db', () => {
     $('.main-body').load('./spell-db.html', () => {
@@ -77,14 +78,6 @@ $( document ).ready(function() {
       });
     }
   });
-  
-  // Click channel divinity
-  $(document).on('click', '.spell-slot--channel-divinity', function() {
-    var r = confirm('Use Channel Divinity?');
-    if (r == true) {
-      $(this).removeClass('selected').addClass('used');
-    }
-  });
 
   // Long rest
   $(document).on('click', '.rest--long', function() {
@@ -93,15 +86,21 @@ $( document ).ready(function() {
       $('.spell-slot').remove();
       localStorage.removeItem('slots');
       setSpellSlots();
-    } 
+      shortRest();
+    }
   });
 
   // Short rest
+  const shortRest = function() {
+    localStorage.setItem('divinity', 1);
+    $('.channel-divinity').show().find('strong').text(`channelDivinity X 1`);
+
+  }
   $(document).on('click', '.rest--short', function() {
     const cnfirmSlotUsage = confirm('Rest short rest?');
     if (cnfirmSlotUsage == true) {
-      $('.spell-slot--channel-divinity').removeClass('used');
-    } 
+      shortRest();
+    }
   });
 
   // Hide spell info on spell slot page

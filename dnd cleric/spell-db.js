@@ -4,7 +4,7 @@ const maxCantrips = 4;
 const maxPreparedSpells = 8 + 4;
 const sortByLevel = (a, b) => {
   const aLevel = a.level;
-  const bLevel = b.level; 
+  const bLevel = b.level;
   return ((aLevel < bLevel) ? -1 : ((aLevel > bLevel) ? 1 : 0));
 };
 
@@ -16,7 +16,7 @@ function newSpell(name, level) {
 const spellListItem = (val) => {
   return `
   <div class="prepared-spell ${val.name}">
-      <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span> 
+      <span class="remove-spell" data-name="${val.name}" data-lvl="${val.level}">✖</span>
       <strong>${val.name.replace(/-/g, ' ')}</strong> - ${val.level}
     </div>
   `;};
@@ -66,7 +66,7 @@ export function removeSpellListener() {
     const spellType = $('#' + spellName).closest('.spell-container').data('type');
     let preparedSpells = JSON.parse(localStorage.getItem(spellType));
     const isSpell = (spell) => {
-      return spell.name === spellName; 
+      return spell.name === spellName;
     };
     const spellToRemove = preparedSpells.find(isSpell);
     preparedSpells = $.grep(preparedSpells, (spell) => {

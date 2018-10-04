@@ -1,0 +1,56 @@
+.spell-db-item {
+  border-bottom: 1px solid black;
+}
+.lvl-flag-container {
+  width: 100%;
+  display: flex;
+  margin-top: -53px;
+}
+.lvl-flag {
+  display: block;
+  color: #FFDF00;
+  font-weight: bold;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 19px;
+  background-image: url(/images/flag.png);
+  width: 35px;
+  height: 43px;
+  margin-right: 20px;
+  transform: scale(1);
+  margin-top: 0;
+  transition: .3s;
+  transform-origin: bottom center;
+}
+
+.lvl-flag--selected {
+  transform: scale(1.5);
+}
+
+.prepared-spells-box {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 93px;
+  overflow: hidden;
+  transition: .5s;
+  z-index: 9;
+}
+.prepared-spells-box--active {
+  max-height: 100%;
+}
+.prepares-spells-box__header {
+  margin-bottom: 0;
+}
+
+.prepared-spells-box__list {
+  padding: 0;
+  list-style-type: none;
+  line-height: 30px;
+}
+.prepared-spells-box__list li {
+  display: flex;
+  margin: 10px 0;
+}

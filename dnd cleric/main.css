@@ -108,12 +108,17 @@ h2 {
 .prepared-spells--spellsolots .remove-spell {
   display: none;
 }
-.prepared-spells--spellsolots .prepared-spell {
+.prepared-spells--spellsolots .prepared-spell, .channel-divinity {
   white-space: nowrap;
   padding: 20px;
   border-radius: 5px;
   background: rgba(0, 0, 0, .05);
   border: 1px solid black;
+}
+.channel-divinity {
+  margin-top: 10px;
+  margin-right: 5px;
+  height: 60px;
 }
 .prepared-spell {
   position: relative;
@@ -122,6 +127,17 @@ h2 {
   display: flex;
   align-items: center;
   z-index: 4;
+}
+
+.prepared-spell .spell-data:after {
+  height: 60px;
+  width: 220px;
+  content: '';
+  display: block;
+  position: absolute;
+  right: -220px;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 .already-chosen {
   pointer-events: none;

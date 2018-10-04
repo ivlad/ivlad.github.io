@@ -1,0 +1,28 @@
+.prepared-spell {
+  background: grey;
+}
+.spell-slots-container {
+  display: flex;
+}
+.spell-slot {
+  background-image: url(/images/spell-slots/button.jpg);
+  background-size: contain;
+  width: 28px;
+  height: 30px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin: 0 10px 10px;
+}
+
+.spell-data-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-level="0"] .spell-slots-container {
+  display: none;
+}
