@@ -1,5 +1,5 @@
 body {
-  background-image: url(/images/bg.png);
+  background-image: url(./images/bg.png);
   padding: 0;
   margin: 0;
   background-repeat: no-repeat;
@@ -16,13 +16,13 @@ body {
   background-repeat: no-repeat;
   height: 50px;
   width: 50px;
-  background-image: url(/images/long-rest.jpg);
+  background-image: url(./images/long-rest.jpg);
 }
 .tab:after {
   content: '';
   display: block;
   height: 70px;
-  background-image: url(/images/bg.png);
+  background-image: url(./images/bg.png);
   position: fixed;
   top: 0;
   width: 100%;
@@ -34,7 +34,7 @@ body {
 }
 .tab {
   margin-top: 140px;
-  background-image: url(/images/imgsrv.roll20.png);
+  background-image: url(./images/imgsrv.roll20.png);
   background-position: top center;
   background-repeat: repeat-x;
   padding: 10px;
@@ -59,10 +59,10 @@ body {
   left: 80px;
 }
 .tab__spell-db {
-  background-image: url(/images/spell_book.png);
+  background-image: url(./images/spell_book.png);
 }
 .tab__prepared-spells {
-  background-image: url(/images/Spell_Scroll_artifact.gif);
+  background-image: url(./images/Spell_Scroll_artifact.gif);
 }
 .tab-radio:checked + label:before {
   content: '';
@@ -72,7 +72,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(/images/selection.png);
+  background-image: url(./images/selection.png);
 }
 .tab-radio:checked + label + .tab {
   display: block;
@@ -83,22 +83,22 @@ body {
   margin: 10px;
   padding: 10px 40px;
   background-image:
-    url(/images/dialog-red/dialog-bottom-left.png),
-    url(/images/dialog-red/dialog-bottom-right.png),
-    url(/images/dialog-red/dialog-top-right.png),
-    url(/images/dialog-red/dialog-top-left.png),
-    url(/images/dialog-red/dialog-top.jpg),
-    url(/images/dialog-red/dialog-bottom.jpg),
-    url(/images/dialog-red/dialog-left.jpg),
-    url(/images/dialog-red/dialog-right.jpg),
-    url(/images/dialog-red/dialog-bg.jpg);
+    url(./images/dialog-red/dialog-bottom-left.png),
+    url(./images/dialog-red/dialog-bottom-right.png),
+    url(./images/dialog-red/dialog-top-right.png),
+    url(./images/dialog-red/dialog-top-left.png),
+    url(./images/dialog-red/dialog-top.jpg),
+    url(./images/dialog-red/dialog-bottom.jpg),
+    url(./images/dialog-red/dialog-left.jpg),
+    url(./images/dialog-red/dialog-right.jpg),
+    url(./images/dialog-red/dialog-bg.jpg);
   background-position: bottom left, bottom right, top right, top left, top center, bottom center, left center, right center, center top;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, no-repeat;
   background-size: auto, auto, auto, auto, auto, auto, auto, auto, cover;
   color: #C8C8C8;
 }
 .dialog-red__cancel {
-  background-image: url(/images/dialog-red/cancel.jpg);
+  background-image: url(./images/dialog-red/cancel.jpg);
   height: 32px;
   width: 66px;
   background-position: left center;
@@ -109,15 +109,15 @@ body {
   margin: 10px;
   padding: 10px 40px;
   background-image:
-    url(/images/dialog-blue/dialog-bottom-left.png),
-    url(/images/dialog-blue/dialog-bottom-right.png),
-    url(/images/dialog-blue/dialog-top-right.png),
-    url(/images/dialog-blue/dialog-top-left.png),
-    url(/images/dialog-blue/dialog-top.jpg),
-    url(/images/dialog-blue/dialog-bottom.jpg),
-    url(/images/dialog-blue/dialog-left.jpg),
-    url(/images/dialog-blue/dialog-right.jpg),
-    url(/images/dialog-blue/dialog-bg.jpg);
+    url(./images/dialog-blue/dialog-bottom-left.png),
+    url(./images/dialog-blue/dialog-bottom-right.png),
+    url(./images/dialog-blue/dialog-top-right.png),
+    url(./images/dialog-blue/dialog-top-left.png),
+    url(./images/dialog-blue/dialog-top.jpg),
+    url(./images/dialog-blue/dialog-bottom.jpg),
+    url(./images/dialog-blue/dialog-left.jpg),
+    url(./images/dialog-blue/dialog-right.jpg),
+    url(./images/dialog-blue/dialog-bg.jpg);
   background-position: bottom left, bottom right, top right, top left, top center, bottom center, left center, right center, center;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y, no-repeat;
   background-size: auto, auto, auto, auto, auto, auto, auto, auto, cover;
@@ -125,7 +125,7 @@ body {
 }
 
 .gold-button {
-  background-image: url(/images/buttons/gold.jpg);
+  background-image: url(./images/buttons/gold.jpg);
   background-size: cover;
   display: flex;
   color: #000;
