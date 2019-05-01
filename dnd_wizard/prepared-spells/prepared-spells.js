@@ -20,9 +20,7 @@ export default stats => {
   const writeSpells = () => {
     const preparedSpellsLIst = JSON.parse(localStorage.getItem('preparedSpells'));
     $('.prepared-spells').html('');
-    console.log('here1');
     Object.keys(preparedSpellsLIst).forEach(function(key) {
-      console.log('here2')
       $('.prepared-spells')
       .append(`
         <li class="prepared-spell dialog-blue" data-level="${preparedSpellsLIst[key].spellLevel}" data-id="${preparedSpellsLIst[key].spellName.replace(/\W/g, '')}">

@@ -1,7 +1,3 @@
-if (!localStorage.getItem('preparedSpells')) {
-  localStorage.setItem('preparedSpells', '{}');
-}
-
 const stats = {
   level: 1,
   cantrips: 3,
@@ -16,19 +12,23 @@ const stats = {
   inteligence: 16,
 }
 
+if (!localStorage.getItem('preparedSpells')) {
+  localStorage.setItem('preparedSpells', '{}');
+}
+
 if (!localStorage.getItem('spellSlots')) {
   localStorage.setItem('spellSlots', JSON.stringify(stats.spellSlots));
 }
 
 const vriteSpellsToStorage = (data) => {
-    const oldItems = JSON.parse(localStorage.getItem('preparedSpells'));
-    const spellId = data.spellName.replace(/\W/g, '');
-    oldItems[spellId] = {
-      'spellLevel': `${data.spellLevel}`,
-      'spellName': `${data.spellName}`,
-    };
-    localStorage.setItem('preparedSpells', JSON.stringify(oldItems));
-    return false;
+  const oldItems = JSON.parse(localStorage.getItem('preparedSpells'));
+  const spellId = data.spellName.replace(/\W/g, '');
+  oldItems[spellId] = {
+    'spellLevel': `${data.spellLevel}`,
+    'spellName': `${data.spellName}`,
+  };
+  localStorage.setItem('preparedSpells', JSON.stringify(oldItems));
+  return false;
 }
 
 
