@@ -8,8 +8,7 @@ if(isset($_POST['submit'])){
     $message = $first_name . " " . $food . " wrote the following:" . "\n\n";
     mail($to,$subject,$message,$headers);
     echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
+}
 ?>
 
 <!DOCTYPE html>
