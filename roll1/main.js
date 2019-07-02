@@ -64,7 +64,7 @@ $(document).ready(function() {
                $('.container').css('transition', '2s' );
                $('.container').css('opacity', 0 );
               setTimeout(function(){
-                $('body').append('<span class="video-container"><iframe width="0" class="last-iframe" height="0" src="https://www.youtube.com/embed/gI-rJcVKTHg?autoplay=1&&showinfo=0&loop=1&start=7" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ></iframe></span>');
+                $('body').append('<span class="video-container"><iframe width="0" class="last-iframe" height="0" src="https://www.youtube.com/embed/-UxD1FObOH4?autoplay=1&&showinfo=0&loop=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ></iframe></span>');
 
                 $('body').append('<iframe class="movie-credits" src="credits.htm"></iframe>');
 
