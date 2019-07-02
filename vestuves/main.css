@@ -129,6 +129,7 @@ body {
   max-width: 400px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 .content__bubble--no-shadow {
   box-shadow: none;
@@ -141,6 +142,9 @@ body {
   max-width: 500px;
 }
 
+ul {
+  padding-left: 20px;
+}
 li {
   margin: 10px 0;
 }

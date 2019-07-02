@@ -1,22 +1,11 @@
 
-<?php
-if(isset($_POST['submit'])){
-    $to = "w.wisnewsky@gmail.com"; // this is your Email address
-    $first_name = $_POST['first_name'];
-    $food = $_POST['food'];
-    $subject = "Form submission";
-    $message = $first_name . " " . $food . " wrote the following:" . "\n\n";
-    mail($to,$subject,$message,$headers);
-    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="./main.js" type="module"></script>
@@ -125,7 +114,7 @@ if(isset($_POST['submit'])){
         </div>
       </div>
       <div class="content__right">
-        <img src="/images/a-10.jpg" alt="">
+        <img src="./images/a-10.jpg" alt="">
       </div>
     </div>
   </section>
